@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Dimensions</title>
+<style>
+:root{
+--bg:#08090b;--card:#111318;--card2:#151820;--ink:#f4f6f8;--muted:#8d949e;
+--line:#272c34;--blue:#5b9cff;--cyan:#36d9e8;--green:#28d79b;--red:#ff5f6d;--amber:#f5bd4f
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.app{max-width:1250px;margin:auto;padding:28px 34px 50px}.header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:20px}
+h1{font-size:25px;margin:0}.sub{color:var(--muted);font-size:12px;margin-top:4px}
+.brand{display:flex;align-items:center;gap:14px}
+.queen-name-only{font-family:"Bodoni 72","Didot","Bodoni MT","Times New Roman",serif;font-size:28px;
+  letter-spacing:-1.5px;font-weight:400;color:#f4f6f8;line-height:1}
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Dimensions</title>
+<style>
+:root{
+--bg:#08090b;--card:#111318;--card2:#151820;--ink:#f4f6f8;--muted:#8d949e;
+--line:#272c34;--blue:#5b9cff;--cyan:#36d9e8;--green:#28d79b;--red:#ff5f6d;--amber:#f5bd4f
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.app{max-width:1250px;margin:auto;padding:28px 34px 50px}.header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:20px}
+h1{font-size:25px;margin:0}.sub{color:var(--muted);font-size:12px;margin-top:4px}
+.brand{display:flex;align-items:center;gap:14px}
+.queen-logo{position:relative;display:flex;align-items:center;gap:8px;padding:8px 12px 8px 10px;
+  border:1px solid #343b46;border-radius:10px;background:linear-gradient(135deg,#151820,#0c0f13);
+  box-shadow:0 6px 22px rgba(0,0,0,.25),inset 0 0 18px rgba(54,217,232,.035)}
+.queen-logo:before{content:"";position:absolute;left:10px;right:10px;bottom:5px;height:1px;
+  background:linear-gradient(90deg,transparent,#36d9e8,transparent);opacity:.7}
+.queen-crown{font-size:18px;line-height:1;filter:drop-shadow(0 0 7px rgba(245,189,79,.3))}
+.queen-name{font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:3px;font-weight:700;
+  background:linear-gradient(90deg,#f5bd4f,#fff3c4,#f5bd4f);-webkit-background-clip:text;
+  background-clip:text;color:transparent;text-shadow:0 0 14px rgba(245,189,79,.12)}
+.actions{display:flex;gap:8px;align-items:center}
+button{border:1px solid var(--line);background:#151820;color:var(--ink);border-radius:8px;padding:10px 15px;font-weight:650;cursor:pointer}button.primary{background:#f4f6f8;color:#08090b;color:#fff;border-color:#222}button:hover{filter:brightness(.97)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.kpi{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}.label{font-size:12px;color:var(--muted)}.num{font-size:29px;font-weight:750;margin-top:6px}.meta{font-size:11px;color:var(--muted);margin-top:4px}
+.section{background:linear-gradient(145deg,#12151a,#0e1014);border:1px solid var(--line);border-radius:11px;margin-bottom:16px;overflow:hidden}.sectionhead{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.sectionhead h2{font-size:15px;margin:0}.sectionhead span{font-size:11px;color:var(--muted)}
+.statusgrid{display:block;padding:18px}.statusleft{display:flex;align-items:center;gap:32px;max-width:760px;margin:auto}.donut{width:145px;height:145px;border-radius:50%;position:relative;display:grid;place-items:center;flex:none;overflow:visible}.donut svg{width:100%;height:100%;overflow:visible}.donut-hole{fill:#111318}.donuttext{position:absolute;z-index:2;text-align:center;font-size:25px;font-weight:750;pointer-events:none}.donuttext small{display:block;font-size:10px;color:var(--muted);font-weight:500}.donut-seg{transition:transform .24s cubic-bezier(.22,1,.36,1),filter .24s ease;transform-box:fill-box;transform-origin:center;cursor:pointer}.donut-seg:hover{filter:brightness(1.12);transform:scale(1.055)}.legend{flex:1}.legendrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px}.g{background:var(--green)}.r{background:var(--red)}.a{background:#d39b22}
+.catgrid{padding:17px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cat{display:grid;grid-template-columns:110px 1fr 62px;gap:8px;align-items:center}.catname{font-size:12px}.bar{height:8px;background:#242932;border-radius:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue);border-radius:10px}.cat input{width:62px;text-align:right;border:1px solid var(--line);border-radius:6px;padding:7px}
+.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:780px}.table th,.table td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:12px}.table th{color:var(--muted);background:#0d0f13}.mini{width:65px;border:1px solid transparent;background:transparent;padding:6px}.mini:focus{border-color:var(--line);background:#111318}.search{padding:8px 10px;border:1px solid var(--line);border-radius:7px;width:180px}
+.modalback{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10;align-items:flex-start;justify-content:center;padding:28px 16px;overflow:auto}.modalback.open{display:flex}.modal{background:#101216;color:#eee;width:min(900px,100%);border-radius:14px;box-shadow:0 20px 70px rgba(0,0,0,.35);padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.modalhead h2{margin:0;font-size:21px}.close{font-size:27px;background:transparent;border:0;color:#9aa1ab;padding:2px 7px}.modal p{color:#9aa1ab;margin:0 0 20px;line-height:1.5}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px}.mfield label{display:block;font-size:13px;font-weight:650;color:#e8ebef;margin-bottom:7px}.mfield input,.mfield textarea{width:100%;background:#171a20;color:#eee;border:1px solid #505050;border-radius:9px;padding:12px;font:inherit}.mfield textarea{min-height:85px;resize:vertical}.modaldate{grid-column:1/-1}.catheading{grid-column:1/-1;color:#9aa1ab;font-size:13px;font-weight:750;letter-spacing:.4px;margin-top:4px}.modalcats{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px 28px}.modalfoot{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.modalfoot button{padding:12px 22px}.modalfoot .cancel{background:#171a20;color:#eee;border-color:#4b4b4b}.modalfoot .primary{background:linear-gradient(135deg,#36d9e8,#5b9cff);border-color:transparent;color:#061014;box-shadow:0 8px 25px rgba(54,217,232,.2)}
+.toast{position:fixed;right:22px;bottom:22px;background:#f4f6f8;color:#08090b;color:white;padding:11px 15px;border-radius:8px;opacity:0;transform:translateY(8px);transition:.2s;z-index:20}.toast.show{opacity:1;transform:none}
+@media(max-width:850px){.statusleft{max-width:none}.kpis{grid-template-columns:repeat(2,1fr)}.statusgrid{grid-template-columns:1fr}.catgrid{grid-template-columns:1fr 1fr}.modalcats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.app{padding:18px}.header{align-items:flex-start}.kpis,.catgrid,.modalgrid,.modalcats{grid-template-columns:1fr}.actions{flex-direction:column}.modaldate{grid-column:auto}}
+</style>
+
+<style>
+body{background:
+radial-gradient(circle at 15% 0%,rgba(54,217,232,.07),transparent 28%),
+radial-gradient(circle at 90% 10%,rgba(91,156,255,.07),transparent 30%),
+#08090b}
+.section,.kpi{box-shadow:0 10px 35px rgba(0,0,0,.22)}
+.kpi{position:relative;overflow:hidden}
+.kpi:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.kpi .num{letter-spacing:-1px}
+.statusgrid{background:linear-gradient(145deg,#11141a,#0c0e12)}
+.statusleft{background:linear-gradient(145deg,rgba(54,217,232,.045),rgba(91,156,255,.02));border:1px solid #202630;border-radius:14px;padding:18px}
+.donut{width:178px;height:178px;box-shadow:0 0 0 1px #27303a,0 0 35px rgba(54,217,232,.12)}
+.donut:after{width:110px;height:110px;background:#101216;box-shadow:inset 0 0 0 1px #252c35}
+.donuttext{font-size:30px;color:#fff;text-shadow:0 0 18px rgba(54,217,232,.35)}
+.donuttext small{color:#8d949e}
+.legendrow{border-bottom:1px solid #222730}
+.legendrow:last-child{border-bottom:0}
+.dot{box-shadow:0 0 10px currentColor}
+.dot.g{background:var(--green);color:var(--green)}.dot.r{background:var(--red);color:var(--red)}.dot.a{background:var(--amber);color:var(--amber)}
+.cat{background:#0e1115;border:1px solid #20252d;border-radius:9px;padding:9px}
+.cat input{background:#0a0c0f;color:#fff;border-color:#2c333d}
+.bar{background:#20252c}.bar i{background:linear-gradient(90deg,#36d9e8,#5b9cff);box-shadow:0 0 10px rgba(54,217,232,.18)}
+.table th{background:#0d0f13;color:#858d98}.table td{border-color:#222730}.table tr:hover td{background:#15181e}
+.search{background:#0d0f13;color:#fff;border-color:#2a3039}
+.modalback{background:rgba(0,0,0,.76);backdrop-filter:blur(8px)}
+.modal{background:linear-gradient(145deg,#191b20,#0f1115);border:1px solid #343a44}
+.mfield input,.mfield textarea{background:#15181d;border-color:#343a44}
+.close{color:#aeb5bf}
+.modalfoot .cancel{background:#181b20;color:#eee;border-color:#343a44}
+
+.record-btn{background:#08090b!important;color:#fff!important;border:1px solid #3a404a!important;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.record-btn:hover{background:#171a20!important;border-color:#59616d!important}
+</style>
+
+<style>
+.status-info{margin:-4px 0 16px;padding:0 0 2px}
+.info-card{display:grid;grid-template-columns:34px 1fr auto 58px 55px;gap:12px;align-items:center;margin:10px 0;padding:16px 18px;border-radius:9px;border-left:5px solid}
+.info-card.done{background:linear-gradient(90deg,rgba(40,215,155,.15),rgba(40,215,155,.07));border-color:#19c987}
+.info-card.rework{background:linear-gradient(90deg,rgba(255,95,109,.14),rgba(255,95,109,.06));border-color:#ff5f6d}
+.info-card.awaiting{background:linear-gradient(90deg,rgba(245,189,79,.14),rgba(245,189,79,.06));border-color:#f5a84f}
+.info-icon{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px}
+.done .info-icon{background:#0cb56f;color:#06130d}.rework .info-icon{background:#ff554f;color:#220606}.awaiting .info-icon{background:#f5a84f;color:#211303;border-radius:7px}
+.info-title{font-size:17px;font-weight:750}.info-desc{font-size:12px;color:#9097a1;margin-top:4px}
+.info-value{font-size:24px;font-weight:800;text-align:right}.info-pct{font-size:13px;color:#9299a3;text-align:right}.info-delta{padding:7px 11px;border-radius:20px;background:rgba(40,215,155,.13);color:#18c87f;font-weight:750;white-space:nowrap}.info-delta.negative{background:rgba(245,168,79,.14);color:#ffad4e}.info-delta.empty{visibility:hidden}
+.info-summary{padding:8px 0 2px;color:#8d949e;font-size:12px;line-height:1.55}.info-summary p{margin:9px 0}.info-summary b{color:#aeb5be}
+@media(max-width:700px){.info-card{grid-template-columns:30px 1fr 55px 45px}.info-delta{grid-column:2}.info-value{grid-column:3;grid-row:1}.info-pct{grid-column:4;grid-row:1}.info-desc{font-size:11px}}
+</style>
+
+<style>
+/* Very light Current Status motion */
+@keyframes statusFadeUp{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes statusGlow{
+  0%,100%{box-shadow:0 0 0 rgba(54,217,232,0)}
+  50%{box-shadow:0 0 18px rgba(54,217,232,.07)}
+}
+@keyframes ringPulse{
+  0%,100%{box-shadow:0 0 0 1px #27303a,0 0 22px rgba(54,217,232,.08)}
+  50%{box-shadow:0 0 0 1px #303844,0 0 30px rgba(54,217,232,.14)}
+}
+.status-info .info-card{
+  animation:statusFadeUp .55s ease both;
+  transition:transform .25s ease,filter .25s ease,background .25s ease;
+}
+.status-info .info-card:nth-child(2){animation-delay:.06s}
+.status-info .info-card:nth-child(3){animation-delay:.12s}
+.status-info .info-card:hover{transform:translateX(3px);filter:brightness(1.04)}
+.statusleft{
+  animation:statusGlow 5s ease-in-out infinite;
+}
+.statusleft .donut{
+  animation:ringPulse 5s ease-in-out infinite;
+}
+.info-icon{transition:transform .25s ease}
+.info-card:hover .info-icon{transform:scale(1.05)}
+@media(prefers-reduced-motion:reduce){
+  .status-info .info-card,.statusleft,.statusleft .donut{animation:none!important}
+  .status-info .info-card,.info-icon{transition:none!important}
+}
+</style>
+
+<style>
+.status-info .info-value,.status-info .info-pct,.status-info .info-delta{
+  transition:opacity .22s ease,transform .22s ease;
+}
+</style>
+
+<style>
+.pd-sheet-link{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+.pd-sheet-link:hover{
+  transform:translateX(4px);
+  filter:brightness(1.06);
+}
+</style>
+
+<style>
+.status-sheet-link{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+.status-sheet-link:hover{
+  transform:translateX(4px);
+  filter:brightness(1.06);
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header"><div class="brand">
+<div class="queen-name-only">QWEEN</div>
+<div><h1>Product Dimensions</h1><div class="sub">Daily Control Center · <span id="headerDate"></span></div></div></div>
+<div class="actions"><button class="record-btn" onclick="openModal()">Record PD update</button></div></header>
+
+<div class="kpis">
+<div class="kpi"><div class="label">Renders received</div><div class="num" id="kr">0</div><div class="meta">Latest update</div></div>
+<div class="kpi"><div class="label">Received for PD</div><div class="num" id="kh">0</div><div class="meta" id="khm"></div></div>
+<div class="kpi"><div class="label">PD done</div><div class="num" id="kd">0</div><div class="meta" id="kdm"></div></div>
+<div class="kpi"><div class="label">Live on catalogue</div><div class="num" id="kl">0</div><div class="meta" id="klm"></div></div>
+</div>
+
+<section class="section"><div class="sectionhead"><h2>Current status</h2><span>Automatically updated from the latest record</span></div>
+<div class="statusgrid"><div class="statusleft"><div class="donut" id="donut">
+<svg viewBox="0 0 160 160" aria-label="PD completion donut">
+  <g id="donutSegments"></g>
+  <circle class="donut-hole" cx="80" cy="80" r="48"></circle>
+</svg>
+<div class="donuttext" id="donutText">0%<small>PD completed</small></div>
+</div>
+<div class="legend"><div class="legendrow"><span><i class="dot g"></i>PD done</span><b id="sd">0</b></div><div class="legendrow"><span><i class="dot r"></i>In rework</span><b id="sr">0</b></div><div class="legendrow"><span><i class="dot a"></i>Awaiting measurement</span><b id="sa">0</b></div></div><div style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:11px;color:#8d949e;margin-bottom:7px"><span>Batch completion</span><b id="statusPct" style="color:#36d9e8">0%</b></div><div style="height:6px;background:#222730;border-radius:20px;overflow:hidden"><div id="statusBar" style="height:100%;width:0%;background:linear-gradient(90deg,#28d79b,#36d9e8);transition:width .7s cubic-bezier(.22,1,.36,1);border-radius:20px;box-shadow:0 0 12px rgba(54,217,232,.3)"></div></div></div></div>
+</div></section>
+
+<div class="status-info">
+  <a class="info-card done pd-sheet-link" href="https://docs.google.com/spreadsheets/d/1vllBF6hBeIE_JrH2-u3wSb-xcTaWCVOWn9p89gzqHhg/edit?gid=2144865906#gid=2144865906&fvid=1537557078" target="_blank" rel="noopener" title="Open PD Done Google Sheet">
+    <div class="info-icon">✓</div>
+    <div class="info-main">
+      <div class="info-title">PD done</div>
+      <div class="info-desc">Dimensions are finished and recorded.</div>
+    </div>
+    <div class="info-delta" id="infoDoneDelta"></div>
+    <div class="info-value" id="infoDoneValue">0</div>
+    <div class="info-pct" id="infoDonePct">0%</div>
+  </a>
+
+  <a class="info-card rework status-sheet-link" href="https://docs.google.com/spreadsheets/d/1AIyscY3IayxqBc-yIdJGN2OYRT_MWpxlL5-1jLUu0DQ/edit?gid=1837043342#gid=1837043342" target="_blank" rel="noopener" title="Open In Rework Google Sheet">
+    <div class="info-icon">!</div>
+    <div class="info-main">
+      <div class="info-title">In rework</div>
+      <div class="info-desc">Sent back to vendor — the render or dimensions need redoing.</div>
+    </div>
+    <div class="info-delta empty"></div>
+    <div class="info-value" id="infoReworkValue">0</div>
+    <div class="info-pct" id="infoReworkPct">0%</div>
+  </a>
+
+  <a class="info-card awaiting status-sheet-link" href="https://docs.google.com/spreadsheets/d/1Z0Kt0i1_c7-wa1FoW_9pZxS-12DJEB_nQaB9WQd4tg8/edit?gid=284062271#gid=284062271&fvid=482211854" target="_blank" rel="noopener" title="Open Awaiting Measurement Google Sheet">
+    <div class="info-icon">▰</div>
+    <div class="info-main">
+      <div class="info-title">Awaiting measurement</div>
+      <div class="info-desc">Blocked on a physical measurement before dimensions can be finished.</div>
+    </div>
+    <div class="info-delta" id="infoAwaitDelta"></div>
+    <div class="info-value" id="infoAwaitValue">0</div>
+    <div class="info-pct" id="infoAwaitPct">0%</div>
+  </a>
+
+  <div class="info-summary">
+    <p><b id="openCount">0</b> still open — <span id="openBreakdown">0 in rework plus 0 awaiting measurement</span>. These are the items blocking the remaining <b id="remainingPct">0%</b> of the handover batch.</p>
+    <p id="liveMessage">All completed items are live on the catalogue, so nothing finished is waiting to be published.</p>
+    <p>Changes shown against the <b id="baselineDate">Sep 2</b> snapshot.</p>
+  </div>
+</div>
+
+<section class="section"><div class="sectionhead"><h2>Handover by category</h2><span>Latest saved values</span></div><div class="catgrid" id="cats"></div></section>
+
+<section class="section"><div class="sectionhead"><div><h2>Daily history</h2><span>Previous records are kept here</span></div><input class="search" id="search" placeholder="Search date…" oninput="renderHistory()"></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>Date</th><th>Renders</th><th>Handover</th><th>PD Done</th><th>Rework</th><th>Awaiting</th><th>Live</th></tr></thead><tbody id="history"></tbody></table></div></section>
+<div style="font-size:11px;color:#777f8a">Tip: You only need to click <b>Record PD update</b> each day. Edit the numbers in the popup and press <b>Save update</b>. All dashboard sections update together.</div>
+</div>
+
+<div class="modalback" id="modalBack" onclick="outside(event)">
+<div class="modal">
+<div class="modalhead"><h2>Record PD update</h2><button class="close" onclick="closeModal()">×</button></div>
+<p>Enter the numbers for this date. After saving, the KPI cards, status, category totals and daily history will all update automatically.</p>
+<div class="modalgrid">
+<div class="mfield modaldate"><label>As of date *</label><input id="mdate" type="date"></div>
+<div class="mfield"><label>Renders received from vendor</label><input id="mrenders" type="number" min="0"></div>
+<div class="mfield"><label>Received for PD (handover)</label><input id="mhandover" type="number" min="0"></div>
+<div class="mfield"><label>PD done</label><input id="mdone" type="number" min="0"></div>
+<div class="mfield"><label>Under rework with vendor</label><input id="mrework" type="number" min="0"></div>
+<div class="mfield"><label>Awaiting measurement</label><input id="mawaiting" type="number" min="0"></div>
+<div class="mfield"><label>Live on catalogue</label><input id="mlive" type="number" min="0"></div>
+<div class="catheading">HANDOVER BY CATEGORY</div>
+<div class="modalcats" id="modalCats"></div>
+<div class="mfield" style="grid-column:1/-1"><label>Note (optional)</label><textarea id="mnote" placeholder="Anything that explains today's movement"></textarea></div>
+</div>
+<div class="modalfoot"><button class="cancel" onclick="closeModal()">Cancel</button><button class="primary" onclick="saveModal()">Save update</button></div>
+</div></div><div class="toast" id="toast">Update saved ✓</div>
+
+<script>
+const C=["Rings","Earring","Bangles","Bracelets","Chain Pendants","Mangalsutra","Necklace","Nosepins","Pendants"];
+const KEY="pd-record-update-v3";
+let data=JSON.parse(localStorage.getItem(KEY)||"null")||{rows:[
+{date:"2026-09-02",renders:1080,handover:205,done:134,rework:62,awaiting:9,live:134,note:""},
+{date:"2026-09-03",renders:1094,handover:214,done:145,rework:61,awaiting:8,live:145,note:""},
+{date:"2026-09-04",renders:1106,handover:224,done:153,rework:61,awaiting:10,live:153,note:""}],
+categories:{Rings:216,Earring:8,Bangles:0,Bracelets:0,"Chain Pendants":0,Mangalsutra:0,Necklace:0,Nosepins:0,Pendants:0}};
+const $=id=>document.getElementById(id),fmt=n=>Number(n||0).toLocaleString("en-IN");
+function latest(){return data.rows[data.rows.length-1]||{date:new Date().toISOString().slice(0,10),renders:0,handover:0,done:0,rework:0,awaiting:0,live:0}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(data))}
+function openModal(row=latest()){
+$("mdate").value=row.date;$("mrenders").value=row.renders;$("mhandover").value=row.handover;$("mdone").value=row.done;$("mrework").value=row.rework;$("mawaiting").value=row.awaiting;$("mlive").value=row.live;$("mnote").value=row.note||"";
+$("modalCats").innerHTML=C.map(c=>`<div class="mfield"><label>${c}</label><input data-mcat="${c}" type="number" min="0" value="${data.categories[c]||0}"></div>`).join("");
+$("modalBack").classList.add("open");document.body.style.overflow="hidden";
+}
+function closeModal(){$("modalBack").classList.remove("open");document.body.style.overflow=""}
+function outside(e){if(e.target===$("modalBack"))closeModal()}
+function saveModal(){
+let r={date:$("mdate").value||new Date().toISOString().slice(0,10),renders:+$("mrenders").value||0,handover:+$("mhandover").value||0,done:+$("mdone").value||0,rework:+$("mrework").value||0,awaiting:+$("mawaiting").value||0,live:+$("mlive").value||0,note:$("mnote").value||""};
+let i=data.rows.findIndex(x=>x.date===r.date);if(i>=0)data.rows[i]=r;else data.rows.push(r);data.rows.sort((a,b)=>a.date.localeCompare(b.date));
+document.querySelectorAll("[data-mcat]").forEach(x=>data.categories[x.dataset.mcat]=+x.value||0);
+persist();render();closeModal();showToast();
+}
+function showToast(){$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1400)}
+function render(){
+let r=latest(),total=(r.done||0)+(r.rework||0)+(r.awaiting||0),pct=total?Math.round(r.done/total*100):0;
+$("headerDate").textContent=r.date;$("kr").textContent=fmt(r.renders);$("kh").textContent=fmt(r.handover);$("kd").textContent=fmt(r.done);$("kl").textContent=fmt(r.live);
+$("khm").textContent=(r.renders?((r.handover/r.renders)*100).toFixed(1):0)+"% of renders";$("kdm").textContent=(r.handover?((r.done/r.handover)*100).toFixed(1):0)+"% of handover";$("klm").textContent=(r.renders?((r.live/r.renders)*100).toFixed(1):0)+"% of renders";
+$("sd").textContent=fmt(r.done);$("sr").textContent=fmt(r.rework);$("sa").textContent=fmt(r.awaiting);$("statusPct").textContent=pct+"%";$("statusBar").style.width=pct+"%";
+renderDonut(r.done||0,r.rework||0,r.awaiting||0);$("donutText").innerHTML=pct+"%<small>PD completed</small>";
+let max=Math.max(1,...C.map(c=>data.categories[c]||0));$("cats").innerHTML=C.map(c=>`<div class="cat"><span class="catname">${c}</span><div class="bar"><i style="width:${(data.categories[c]||0)/max*100}%"></i></div><b>${fmt(data.categories[c]||0)}</b></div>`).join("");
+
+renderStatusInfo(r);
+renderHistory();
+}
+
+
+function donutPoint(cx,cy,r,a){
+  const rad=(a-90)*Math.PI/180;
+  return [cx+r*Math.cos(rad),cy+r*Math.sin(rad)];
+}
+function donutArc(cx,cy,r1,r2,start,end){
+  const [x1,y1]=donutPoint(cx,cy,r2,start),[x2,y2]=donutPoint(cx,cy,r2,end);
+  const [x3,y3]=donutPoint(cx,cy,r1,end),[x4,y4]=donutPoint(cx,cy,r1,start);
+  const large=(end-start)>180?1:0;
+  return `M${x1} ${y1} A${r2} ${r2} 0 ${large} 1 ${x2} ${y2} L${x3} ${y3} A${r1} ${r1} 0 ${large} 0 ${x4} ${y4}Z`;
+}
+function renderDonut(done,rework,awaiting){
+  const g=$("donutSegments"); if(!g)return;
+  g.innerHTML="";
+  const items=[
+    {key:"done",value:done,color:"#19c777"},
+    {key:"rework",value:rework,color:"#ff5b55"},
+    {key:"awaiting",value:awaiting,color:"#e4b13b"}
+  ];
+  const total=items.reduce((s,x)=>s+x.value,0);
+  let angle=0;
+  items.forEach(item=>{
+    if(item.value<=0)return;
+    const span=item.value/total*360;
+    const gap=Math.min(1.5,span/12);
+    const p=document.createElementNS("http://www.w3.org/2000/svg","path");
+    p.setAttribute("d",donutArc(80,80,49,75,angle+gap,angle+span-gap));
+    p.setAttribute("fill",item.color);
+    p.setAttribute("class","donut-seg");
+    p.dataset.key=item.key;
+    p.setAttribute("aria-label",item.key+" "+item.value);
+    g.appendChild(p);
+    angle+=span;
+  });
+}
+
+function renderStatusInfo(r){
+  const baseline = data.rows.find(x=>x.date==="2026-09-02") || data.rows[0] || r;
+  const handover = Number(r.handover||0);
+  const done = Number(r.done||0);
+  const rework = Number(r.rework||0);
+  const awaiting = Number(r.awaiting||0);
+  const open = rework + awaiting;
+  const donePct = handover ? Math.round(done/handover*100) : 0;
+  const reworkPct = handover ? Math.round(rework/handover*100) : 0;
+  const awaitPct = handover ? Math.round(awaiting/handover*100) : 0;
+  const remainingPct = handover ? Math.round(open/handover*100) : 0;
+  const doneDelta = done - Number(baseline.done||0);
+  const awaitDelta = awaiting - Number(baseline.awaiting||0);
+
+  $("infoDoneValue").textContent=fmt(done);
+  $("infoDonePct").textContent=donePct+"%";
+  $("infoReworkValue").textContent=fmt(rework);
+  $("infoReworkPct").textContent=reworkPct+"%";
+  $("infoAwaitValue").textContent=fmt(awaiting);
+  $("infoAwaitPct").textContent=awaitPct+"%";
+
+  $("infoDoneDelta").textContent=(doneDelta>=0?"+":"")+fmt(doneDelta)+" since "+shortDate(baseline.date);
+  $("infoAwaitDelta").textContent=(awaitDelta>=0?"+":"")+fmt(awaitDelta)+" since "+shortDate(baseline.date);
+  $("infoAwaitDelta").className="info-delta"+(awaitDelta<0?" negative":"");
+
+  $("openCount").textContent=fmt(open);
+  $("openBreakdown").textContent=fmt(rework)+" in rework plus "+fmt(awaiting)+" awaiting measurement";
+  $("remainingPct").textContent=remainingPct+"%";
+  $("baselineDate").textContent=shortDate(baseline.date);
+
+  const live=Number(r.live||0);
+  if(live>=done){
+    $("liveMessage").textContent=`All ${fmt(done)} completed items are live on the catalogue, so nothing finished is waiting to be published.`;
+  }else{
+    $("liveMessage").textContent=`${fmt(done-live)} completed items are not yet live on the catalogue.`;
+  }
+}
+function shortDate(s){
+  if(!s)return"baseline";
+  const d=new Date(s+"T00:00:00");
+  return d.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+}
+
+function renderHistory(){
+let q=$("search").value.toLowerCase();$("history").innerHTML=data.rows.slice().reverse().filter(r=>r.date.includes(q)).map(r=>`<tr><td><b>${r.date}</b></td><td>${fmt(r.renders)}</td><td>${fmt(r.handover)}</td><td>${fmt(r.done)}</td><td>${fmt(r.rework)}</td><td>${fmt(r.awaiting)}</td><td>${fmt(r.live)}</td></tr>`).join("");
+}
+render();
+</script>
+</body></html>
