@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Dimensions</title>
+<style>
+:root{--bg:#f6f6f3;--card:#fff;--ink:#202124;--muted:#777b80;--line:#e3e3df;--blue:#1769e0;--green:#16844a;--red:#c74343;--amber:#bd8500}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.app{max-width:1250px;margin:auto;padding:28px 34px 50px}.header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:20px}
+h1{font-size:25px;margin:0}.sub{color:var(--muted);font-size:12px;margin-top:4px}.actions{display:flex;gap:8px}
+button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:10px 15px;font-weight:650;cursor:pointer}button.primary{background:#222;color:#fff;border-color:#222}button:hover{filter:brightness(.97)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.kpi{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}.label{font-size:12px;color:var(--muted)}.num{font-size:29px;font-weight:750;margin-top:6px}.meta{font-size:11px;color:var(--muted);margin-top:4px}
+.section{background:#fff;border:1px solid var(--line);border-radius:11px;margin-bottom:16px;overflow:hidden}.sectionhead{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.sectionhead h2{font-size:15px;margin:0}.sectionhead span{font-size:11px;color:var(--muted)}
+.statusgrid{display:grid;grid-template-columns:1fr 1fr;padding:18px;gap:25px}.statusleft{display:flex;align-items:center;gap:25px}.donut{width:145px;height:145px;border-radius:50%;position:relative;background:conic-gradient(var(--green) var(--a),var(--red) var(--a) var(--b),#e4b13b var(--b));display:grid;place-items:center;flex:none}.donut:after{content:"";width:88px;height:88px;border-radius:50%;background:#fff}.donuttext{position:absolute;z-index:2;text-align:center;font-size:25px;font-weight:750}.donuttext small{display:block;font-size:10px;color:var(--muted);font-weight:500}.legend{flex:1}.legendrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px}.g{background:var(--green)}.r{background:var(--red)}.a{background:#d39b22}
+.catgrid{padding:17px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cat{display:grid;grid-template-columns:110px 1fr 62px;gap:8px;align-items:center}.catname{font-size:12px}.bar{height:8px;background:#ededeb;border-radius:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue);border-radius:10px}.cat input{width:62px;text-align:right;border:1px solid var(--line);border-radius:6px;padding:7px}
+.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:780px}.table th,.table td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:12px}.table th{color:var(--muted);background:#fafafa}.mini{width:65px;border:1px solid transparent;background:transparent;padding:6px}.mini:focus{border-color:var(--line);background:#fff}.search{padding:8px 10px;border:1px solid var(--line);border-radius:7px;width:180px}
+.modalback{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10;align-items:flex-start;justify-content:center;padding:28px 16px;overflow:auto}.modalback.open{display:flex}.modal{background:#252525;color:#eee;width:min(900px,100%);border-radius:14px;box-shadow:0 20px 70px rgba(0,0,0,.35);padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.modalhead h2{margin:0;font-size:21px}.close{font-size:27px;background:transparent;border:0;color:#aaa;padding:2px 7px}.modal p{color:#aaa;margin:0 0 20px;line-height:1.5}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px}.mfield label{display:block;font-size:13px;font-weight:650;color:#ddd;margin-bottom:7px}.mfield input,.mfield textarea{width:100%;background:#2d2d2d;color:#eee;border:1px solid #505050;border-radius:9px;padding:12px;font:inherit}.mfield textarea{min-height:85px;resize:vertical}.modaldate{grid-column:1/-1}.catheading{grid-column:1/-1;color:#aaa;font-size:13px;font-weight:750;letter-spacing:.4px;margin-top:4px}.modalcats{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px 28px}.modalfoot{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.modalfoot button{padding:12px 22px}.modalfoot .cancel{background:#303030;color:#eee;border-color:#4b4b4b}.modalfoot .primary{background:#45a9b1;border-color:#45a9b1}
+.toast{position:fixed;right:22px;bottom:22px;background:#222;color:white;padding:11px 15px;border-radius:8px;opacity:0;transform:translateY(8px);transition:.2s;z-index:20}.toast.show{opacity:1;transform:none}
+@media(max-width:850px){.kpis{grid-template-columns:repeat(2,1fr)}.statusgrid{grid-template-columns:1fr}.catgrid{grid-template-columns:1fr 1fr}.modalcats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.app{padding:18px}.header{align-items:flex-start}.kpis,.catgrid,.modalgrid,.modalcats{grid-template-columns:1fr}.actions{flex-direction:column}.modaldate{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header"><div><h1>Product Dimensions</h1><div class="sub">Daily Control Center · <span id="headerDate"></span></div></div>
+<div class="actions"><button onclick="newDay()">＋ New day</button><button class="primary" onclick="openModal()">Record PD update</button></div></header>
+
+<div class="kpis">
+<div class="kpi"><div class="label">Renders received</div><div class="num" id="kr">0</div><div class="meta">Latest update</div></div>
+<div class="kpi"><div class="label">Received for PD</div><div class="num" id="kh">0</div><div class="meta" id="khm"></div></div>
+<div class="kpi"><div class="label">PD done</div><div class="num" id="kd">0</div><div class="meta" id="kdm"></div></div>
+<div class="kpi"><div class="label">Live on catalogue</div><div class="num" id="kl">0</div><div class="meta" id="klm"></div></div>
+</div>
+
+<section class="section"><div class="sectionhead"><h2>Current status</h2><span>Automatically updated from the latest record</span></div>
+<div class="statusgrid"><div class="statusleft"><div class="donut" id="donut"><div class="donuttext" id="donutText">0%<small>PD completed</small></div></div>
+<div class="legend"><div class="legendrow"><span><i class="dot g"></i>PD done</span><b id="sd">0</b></div><div class="legendrow"><span><i class="dot r"></i>In rework</span><b id="sr">0</b></div><div class="legendrow"><span><i class="dot a"></i>Awaiting measurement</span><b id="sa">0</b></div></div></div>
+<div><div style="font-weight:650;margin-bottom:8px">Latest category handover</div><div id="catSummary"></div></div></div></section>
+
+<section class="section"><div class="sectionhead"><h2>Handover by category</h2><span>Latest saved values</span></div><div class="catgrid" id="cats"></div></section>
+
+<section class="section"><div class="sectionhead"><div><h2>Daily history</h2><span>Previous records are kept here</span></div><input class="search" id="search" placeholder="Search date…" oninput="renderHistory()"></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>Date</th><th>Renders</th><th>Handover</th><th>PD Done</th><th>Rework</th><th>Awaiting</th><th>Live</th></tr></thead><tbody id="history"></tbody></table></div></section>
+<div style="font-size:11px;color:#888">Tip: You only need to click <b>Record PD update</b> each day. Edit the numbers in the popup and press <b>Save update</b>. All dashboard sections update together.</div>
+</div>
+
+<div class="modalback" id="modalBack" onclick="outside(event)">
+<div class="modal">
+<div class="modalhead"><h2>Record PD update</h2><button class="close" onclick="closeModal()">×</button></div>
+<p>Enter the numbers for this date. After saving, the KPI cards, status, category totals and daily history will all update automatically.</p>
+<div class="modalgrid">
+<div class="mfield modaldate"><label>As of date *</label><input id="mdate" type="date"></div>
+<div class="mfield"><label>Renders received from vendor</label><input id="mrenders" type="number" min="0"></div>
+<div class="mfield"><label>Received for PD (handover)</label><input id="mhandover" type="number" min="0"></div>
+<div class="mfield"><label>PD done</label><input id="mdone" type="number" min="0"></div>
+<div class="mfield"><label>Under rework with vendor</label><input id="mrework" type="number" min="0"></div>
+<div class="mfield"><label>Awaiting measurement</label><input id="mawaiting" type="number" min="0"></div>
+<div class="mfield"><label>Live on catalogue</label><input id="mlive" type="number" min="0"></div>
+<div class="catheading">HANDOVER BY CATEGORY</div>
+<div class="modalcats" id="modalCats"></div>
+<div class="mfield" style="grid-column:1/-1"><label>Note (optional)</label><textarea id="mnote" placeholder="Anything that explains today's movement"></textarea></div>
+</div>
+<div class="modalfoot"><button class="cancel" onclick="closeModal()">Cancel</button><button class="primary" onclick="saveModal()">Save update</button></div>
+</div></div><div class="toast" id="toast">Update saved ✓</div>
+
+<script>
+const C=["Rings","Earring","Bangles","Bracelets","Chain Pendants","Mangalsutra","Necklace","Nosepins","Pendants"];
+const KEY="pd-record-update-v3";
+let data=JSON.parse(localStorage.getItem(KEY)||"null")||{rows:[
+{date:"2026-09-02",renders:1080,handover:205,done:134,rework:62,awaiting:9,live:134,note:""},
+{date:"2026-09-03",renders:1094,handover:214,done:145,rework:61,awaiting:8,live:145,note:""},
+{date:"2026-09-04",renders:1106,handover:224,done:153,rework:61,awaiting:10,live:153,note:""}],
+categories:{Rings:216,Earring:8,Bangles:0,Bracelets:0,"Chain Pendants":0,Mangalsutra:0,Necklace:0,Nosepins:0,Pendants:0}};
+const $=id=>document.getElementById(id),fmt=n=>Number(n||0).toLocaleString("en-IN");
+function latest(){return data.rows[data.rows.length-1]||{date:new Date().toISOString().slice(0,10),renders:0,handover:0,done:0,rework:0,awaiting:0,live:0}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(data))}
+function openModal(row=latest()){
+$("mdate").value=row.date;$("mrenders").value=row.renders;$("mhandover").value=row.handover;$("mdone").value=row.done;$("mrework").value=row.rework;$("mawaiting").value=row.awaiting;$("mlive").value=row.live;$("mnote").value=row.note||"";
+$("modalCats").innerHTML=C.map(c=>`<div class="mfield"><label>${c}</label><input data-mcat="${c}" type="number" min="0" value="${data.categories[c]||0}"></div>`).join("");
+$("modalBack").classList.add("open");document.body.style.overflow="hidden";
+}
+function closeModal(){$("modalBack").classList.remove("open");document.body.style.overflow=""}
+function outside(e){if(e.target===$("modalBack"))closeModal()}
+function saveModal(){
+let r={date:$("mdate").value||new Date().toISOString().slice(0,10),renders:+$("mrenders").value||0,handover:+$("mhandover").value||0,done:+$("mdone").value||0,rework:+$("mrework").value||0,awaiting:+$("mawaiting").value||0,live:+$("mlive").value||0,note:$("mnote").value||""};
+let i=data.rows.findIndex(x=>x.date===r.date);if(i>=0)data.rows[i]=r;else data.rows.push(r);data.rows.sort((a,b)=>a.date.localeCompare(b.date));
+document.querySelectorAll("[data-mcat]").forEach(x=>data.categories[x.dataset.mcat]=+x.value||0);
+persist();render();closeModal();showToast();
+}
+function newDay(){
+let d=new Date(latest().date+"T00:00:00");d.setDate(d.getDate()+1);let ds=d.toISOString().slice(0,10);
+openModal({date:ds,renders:latest().renders,handover:0,done:0,rework:0,awaiting:0,live:latest().live,note:""});
+}
+function showToast(){$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1400)}
+function render(){
+let r=latest(),total=(r.done||0)+(r.rework||0)+(r.awaiting||0),pct=total?Math.round(r.done/total*100):0;
+$("headerDate").textContent=r.date;$("kr").textContent=fmt(r.renders);$("kh").textContent=fmt(r.handover);$("kd").textContent=fmt(r.done);$("kl").textContent=fmt(r.live);
+$("khm").textContent=(r.renders?((r.handover/r.renders)*100).toFixed(1):0)+"% of renders";$("kdm").textContent=(r.handover?((r.done/r.handover)*100).toFixed(1):0)+"% of handover";$("klm").textContent=(r.renders?((r.live/r.renders)*100).toFixed(1):0)+"% of renders";
+$("sd").textContent=fmt(r.done);$("sr").textContent=fmt(r.rework);$("sa").textContent=fmt(r.awaiting);
+let a=total?r.done/total*360:0,b=total?(r.done+r.rework)/total*360:0;$("donut").style.setProperty("--a",a+"deg");$("donut").style.setProperty("--b",b+"deg");$("donutText").innerHTML=pct+"%<small>PD completed</small>";
+let max=Math.max(1,...C.map(c=>data.categories[c]||0));$("cats").innerHTML=C.map(c=>`<div class="cat"><span class="catname">${c}</span><div class="bar"><i style="width:${(data.categories[c]||0)/max*100}%"></i></div><b>${fmt(data.categories[c]||0)}</b></div>`).join("");
+$("catSummary").innerHTML=C.map(c=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:12px"><span>${c}</span><b>${fmt(data.categories[c]||0)}</b></div>`).join("");
+renderHistory();
+}
+function renderHistory(){
+let q=$("search").value.toLowerCase();$("history").innerHTML=data.rows.slice().reverse().filter(r=>r.date.includes(q)).map(r=>`<tr><td><b>${r.date}</b></td><td>${fmt(r.renders)}</td><td>${fmt(r.handover)}</td><td>${fmt(r.done)}</td><td>${fmt(r.rework)}</td><td>${fmt(r.awaiting)}</td><td>${fmt(r.live)}</td></tr>`).join("");
+}
+render();
+</script>
+</body></html>
